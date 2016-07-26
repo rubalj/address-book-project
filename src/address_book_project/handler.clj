@@ -2,7 +2,6 @@
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
-            [address-book-project.schema :as schema]
             [address-book-project.core :as core]))
  (use '[ring.middleware.json :only [wrap-json-body]]
      '[ring.util.response :only [response]])
