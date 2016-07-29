@@ -8,13 +8,11 @@
 
 (defroutes app-routes
   (GET "/address" [] core/display-records)
-  (GET "/index" [] core/display-index)
   (POST "/address" [] core/insert-record)
   (GET "/address/:id" [] core/retrieve-record-by-id)
   (DELETE "/address/:id" [] core/delete-record-by-id)
   (PUT "/address/:id" [] core/update-record-by-id)
   (GET "/address/search/:name" [] core/search-by-name)
-  (GET "/address/trial/:name" [] (core/trial-function :name ""))
   (route/not-found "Not Found"))
 
 (def app

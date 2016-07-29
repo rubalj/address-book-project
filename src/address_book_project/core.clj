@@ -14,7 +14,8 @@
   (str (UUID/randomUUID)))
 
 
-(defn trial-function
+(defn exists?
+  "Checks if the value exists for the supplied key in the database"
   [keyvalue namevalue]
   (let [names (map (fn [[id value]] (keyvalue value)) @book )
         name namevalue]
@@ -29,7 +30,7 @@
         name (:name (:body request))
         email (:email (:body request))]
     (sc/validate schema/data-schema recordvalue)
-    (if (or (trial-function :name name) (trial-function :email email))
+    (if (or (exists? :name name) (exists? :email email))
       {:status 412}
       (do
         (swap! book assoc id recordvalue)
@@ -60,8 +61,10 @@
   "Deletes a record corresponding to the ID passed, if exists"
   [request]
   (let [id (:id (:params request))]
-    (swap! book dissoc id))
-  {:status 200})
+    (if (exists? :id id)
+      (do (swap! book dissoc id)
+          {:status 200})
+      {:status 404})))
 
 
 (defn update-record-by-id
