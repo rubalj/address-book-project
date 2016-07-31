@@ -1,6 +1,6 @@
 (defproject address-book-project "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "Addressbook implementation using compojure"
+  :url "http://github.com/rubalj/address-book-project"
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [compojure "1.5.1"]
