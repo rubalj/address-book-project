@@ -1,6 +1,6 @@
 # address-book-project
 
-FIXME
+An addressbook which features to add, delete, update and search for a record. It is a compojure project which utilizes the functionalities of cheshire, prismatic schema, ring-json for developement and ring mock for testing.  
 
 ## Prerequisites
 
@@ -16,4 +16,4 @@ To start a web server for the application, run:
 
 ## License
 
-Copyright © 2016 FIXME
+Copyright © 2016 MIT License 
